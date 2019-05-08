@@ -1,4 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Prosto+One|Lobster');
+
+
+.login-bar {
+  text-align: right;
+}
+
+label {
+  display: block;
+}
+
+input#title {
+  width: 40em;
+}
+
+textarea {
+  height: 10em;
+  width: 55em;
+}
+
 body {
-  padding: 10px;
-  font-family: sans-serif;
+  text-align: center;
+  background: #222222;    
+}
+
+fieldset {
+  margin-top: 10px;
+}
+
+.wrapper {
+  width: 1000px;
+  margin: 10px auto;
+  display:flex;
+  flex-direction:column;
+  text-align: center;
+  border: 1px solid grey;
+  padding: 20px;
+  background: #EEEEEE;	
+}
+
+ul#menu li {
+  display: inline;
+}
+
+ul#menu li a {
+  border: 1px solid grey;
+  padding: 5px 10px;
+}
+
+ul#menu {
+  padding-left: 0;    
+  list-style: none;
+  margin-bottom: 4px;
+}
+
+h1, h2{
+  font-family: 'Lobster', cursive;   
+}
+
+#footer {
+  text-align: right;
+  margin-top: 10px;
+  font-size:10pt;
+}
+
+.guitar-img {	
+  border:2px solid black;
+  margin-bottom: 5px;
+}
+
+#guitar-div{
+display:flex; 
+justify-content:center; 
+  flex-wrap:wrap;
+  /*width:120px;*/
+}
+
+#guitar-div p{
+text-align:center; 
+margin:-4px auto 15px auto;
+}
+
+#guitar-div a{
+  text-decoration: none;
+  color: black;
+}
+
+#guitar-div a:hover{
+  color: rgb(0, 132, 255);
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+}
+
+.guitar-block{
+  display:flex; 
+  border:5px groove black;  
+  width:1000px;   
+  margin-bottom:20px; 
+  padding:5px; 
+  flex-wrap:wrap;
+  flex-direction:row;
+}
+
+.guitar-details{
+  margin: 20px 10px 0px 10px;
+flex:1;
+justify-content:space-between;
+}
+
+.brand-label{
+  text-decoration: underline;
+  font-size:20pt;
+  font-family: 'Lobster', cursive;
+  padding-right: 1px;
+}
+
+
+.nav-bar{
+border:3px double black;
+border-top:0px;
+margin:5px;
+}
+
+.nav-bar ul{
+display:flex;
+justify-content:space-around;
+}
+
+.nav-bar li{	
+list-style:none;	
+margin-bottom:-10px;
+}
+
+.nav-bar li a {
+  text-decoration:none;
+  color: rgb(236, 174, 1);
+  text-shadow: black 2px 1px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+}
+
+.nav-bar a:hover{
+  color: rgb(0, 132, 255);
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+}
+
+#new-guitar fieldset{
+display:flex;
+flex-direction:column;
+}
+
+.form-button{
+width:100px;
+  height:40px;
+  border-radius: 10px;  
+}
+
+.form-button:hover
+{
+  font-weight:bold;
+  color: rgb(236, 174, 1);
+  background: rgb(0, 132, 255);
+}
+
+.form-button:disabled
+{
+  pointer-events: none;
+}
+
+#user-bar{
+  text-align:right;
+}
+
+.user-inputs{
+width:130px;
+}
+
+.admin-controls-disabled, .login-controls-disabled{
+  display: none;
+}
+
+html
+{
+  font-family: 'Prosto One';
+  font-size: 10pt;
+}
+
+.error-message
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:red;
+}
+
+#keyword
+{
+  width:100px;
 }

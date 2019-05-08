@@ -1,31 +1,25 @@
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import Links from '/imports/api/links';
+import Guitars from '/imports/api/guitars';
+import Images from '../imports/api/Images';
 
-function insertLink(title, url) {
-  Links.insert({ title, url, createdAt: new Date() });
+function insertGuitar(year, brand, model, img) {
+  Guitars.insert({ year, brand, model, img});
 }
 
 Meteor.startup(() => {
   // If the Links collection is empty, add some data.
-  if (Links.find().count() === 0) {
-    insertLink(
-      'Do the Tutorial',
-      'https://www.meteor.com/tutorials/react/creating-an-app'
-    );
-
-    insertLink(
-      'Follow the Guide',
-      'http://guide.meteor.com'
-    );
-
-    insertLink(
-      'Read the Docs',
-      'https://docs.meteor.com'
-    );
-
-    insertLink(
-      'Discussions',
-      'https://forums.meteor.com'
-    );
+  if (Guitars.find().count() === 0) {
+    insertGuitar(1952,'Fender','Telecaster',Images.tele);
+    insertGuitar(1954,'Fender','Stratocaster',Images.strat);
+    insertGuitar(1958,'Fender','Jazzmaster',Images.jazz);
+    insertGuitar(1962,'Fender','Jaguar',Images.jag);
   }
+  else{
+    console.log('Guitars already');
+  }
+
+  console.log("SRC: " + Images.tele);
 });
+
+

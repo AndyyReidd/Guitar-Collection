@@ -1,14 +1,14 @@
 import React from 'react';
 import Hello from './Hello.jsx';
 import Title from './Title';
-import Login from './Login';
+import LoginBar from './Login-Bar';
 import GuitarBlock from './Guitar-Block.jsx';
 import GuitarDiv from './Guitar-Div';
 
 
 const App = () => (
   <div className="wrapper">
-    <Login />
+    <LoginBar />
     <Title />
     <GuitarDiv />
   </div>

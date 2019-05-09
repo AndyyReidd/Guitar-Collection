@@ -14,12 +14,15 @@ class GuitarDetails extends Component{
     }
 
     makeGuitar(guitar) {
-        return (
-            <div className="guitar-details" key={guitar._id}>
-                <img className="guitar-img" src={guitar.img}></img>
-                <p>{guitar.year} {guitar.model}</p>
-            </div>
-        );
+        if (guitar.brand == this.props.brand)
+        {
+            return (
+                <div className="guitar-details" key={guitar._id}>
+                    <img className="guitar-img" src={guitar.img}></img>
+                    <p>{guitar.year} {guitar.model}</p>
+                </div>
+            );
+       }
     }
 
 //     <li key={guitar._id}>

@@ -13,6 +13,7 @@ class Login extends Component{
         }
 
         this.usernameChanged = this.usernameChanged.bind(this);
+        this.passwordChanged = this.passwordChanged.bind(this);
 
     }
 
@@ -24,7 +25,7 @@ class Login extends Component{
                 <p>Please fill in your credentials to login.</p>
                 <div>
                     <label>Username</label>
-                    <input type="text" autoFocus onChange={this.usernameChanged}/>
+                    <input type="text" autoFocus={true} onChange={this.usernameChanged}/>
                 </div>
                 <div>
                     <label>Password</label>
@@ -44,13 +45,6 @@ class Login extends Component{
             this.state.username,
             this.state.password
         );
-    }
-
-    createUser = ()=>{
-        Accounts.createUser({
-            "username" : this.state.username, 
-            "password" : this.state.password
-        });
     }
 
     usernameChanged = (e) =>{

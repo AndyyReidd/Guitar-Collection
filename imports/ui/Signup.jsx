@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Title from './Title';
 import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
+import {Redirect, Link} from 'react-router-dom';
 
 class Signup extends Component{
     constructor(props){
@@ -12,7 +13,7 @@ class Signup extends Component{
             email : '',
             password : '',
             confirm : '',
-            error : ''
+            error_msg : ''
         }
 
         this.usernameChanged = this.usernameChanged.bind(this);
@@ -22,6 +23,7 @@ class Signup extends Component{
         this.createUser = this.createUser.bind(this);
         this.resetFields = this.resetFields.bind(this);
         this.getError = this.getError.bind(this);
+        //this.error = this.error.bind(this);
 
     }
 
@@ -47,12 +49,12 @@ class Signup extends Component{
                         <label>Confirm Password</label>
                         <input type="password" onChange={this.confirmChanged}/>
                     </div>
-                    <p id="err" className="error-message">{this.state.error}</p>
+                    <p id="err" className="error-message">{this.state.error_msg}</p>
                     <div>
                         <button className="form-button" onClick={this.createUser}>Create</button>
                         <button className="form-button" onClick={this.resetFields}>Reset</button>
                     </div>
-                    <p>Already have an account? <a href="login">Login here</a>.</p>
+                    <p>Already have an account? <Link to="login">Login here.</Link></p>
                 </form>
             </div>
         );
@@ -62,22 +64,35 @@ class Signup extends Component{
         e.preventDefault();
         document.getElementById("create-user").reset();
         this.setState({
-            error : ''
+            error_msg : ''
         });
     }
 
-    createUser = (e)=>{
+    
+    
+  
+
+    createUser = (e) =>{
         if(this.state.password == this.state.confirm){
             Accounts.createUser({
                 "username" : this.state.username, 
                 "email" : this.state.email,
                 "password" : this.state.password
+            }, 
+            (err) => {
+                {err ? this.setState({error_msg : err.reason}) : null}
             });
-       }
-       else{
-            e.preventDefault();
         }
-   
+
+        e.preventDefault();
+        
+        /* Want to redirect to index here */
+
+
+
+
+        
+        
     }
 
     getError = (message) => {
@@ -115,18 +130,18 @@ class Signup extends Component{
             console.log("true");
             if (confirm.length > 0) {
                 this.setState({
-                    error : 'Passwords do not match.'
+                    error_msg : 'Passwords do not match.'
                 });
             }
             else {
                 this.setState({
-                    error : ''
+                    error_msg : ''
                 });
             }
         }
         else {
             this.setState({
-                confirm : confirm, error:''
+                confirm : confirm, error_msg:''
             })
         }
     }

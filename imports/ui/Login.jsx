@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Title from './Title';
 import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
+import {Link} from 'react-router-dom';
 
 
 class Login extends Component{
@@ -35,7 +36,7 @@ class Login extends Component{
                 <div>
                     <button className="form-button" onClick={this.loginUser}>Login</button>
                 </div>
-                <p>Don't have an account? <a href="signup">Sign up now</a>.</p>
+                <p>Don't have an account? <Link to="signup">Sign up now</Link>.</p>
             </div>
         );
     }

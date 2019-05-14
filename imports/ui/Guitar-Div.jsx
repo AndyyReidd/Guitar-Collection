@@ -7,7 +7,7 @@ class GuitarDiv extends Component{
     render(){
         return(
             <div className="guitar-div">
-                <GuitarBlock brands={Guitars} />
+                <GuitarBlock />
             </div>
         )
     }

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import GuitarDetails from './Guitar-Details';
 import Guitars from '../api/guitars';
 import BrandLabel from './Brand-Label';
-import { withTracker } from 'meteor/react-meteor-data';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
 
-class GuitarBlock extends Component {
+class GuitarBlock extends TrackerReact(Component) {
     constructor(props){
         super(props);
 
@@ -13,19 +13,18 @@ class GuitarBlock extends Component {
     }
 
     render(){
-        const brands = this.props.brands.map(
+        const brands = Guitars.find({}).fetch().map(
             guitar => this.makeBrand(guitar.brand)
         );
 
-        return(
-          brands
-        );
+        return brands;
     }
 
     makeBrand(brand) {
         if (!this.state.usedBrands.includes(brand))
         {
             this.state.usedBrands.push(brand);
+
 
             return (
                 <div className="guitar-block" key={brand}>
@@ -37,10 +36,13 @@ class GuitarBlock extends Component {
     }
 }
 
+export default GuitarBlock;
 
+/*
 export default GuitarBlockContainer = withTracker(() => {
     return {
-      brands: Guitars.find().fetch()        
+      guitars: Guitars.find().fetch()        
     };
   })(GuitarBlock);
+  */
   

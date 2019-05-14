@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import Guitars from '../api/guitars';
 
-class GuitarDetails extends Component{
+class GuitarDetails extends TrackerReact(Component){
     render(){
-        const guitars = this.props.guitars.map(
+        const guitars = Guitars.find({}).fetch().map(
             guitar => this.makeGuitar(guitar)
           );          
           
-        return (
-            guitars
-        );
+        return guitars;
     }
 
     makeGuitar(guitar) {
@@ -19,21 +17,11 @@ class GuitarDetails extends Component{
             return (
                 <div className="guitar-details" key={guitar._id}>
                     <img className="guitar-img" src={guitar.img}></img>
-                    <p>'{guitar.year} {guitar.model}</p>
+                    <br />'{guitar.year} {guitar.model}<br />
                 </div>
             );
        }
-    }
-
-//     <li key={guitar._id}>
-//     {guitar.year} {guitar.brand} {guitar.model} <img src={guitar.img}></img>
-//   </li>  
- 
+    } 
 }
 
-export default GuitarDetailsContainer = withTracker(() => {
-    return {
-      guitars: Guitars.find().fetch(),
-    };
-  })(GuitarDetails);
-  
+export default GuitarDetails;

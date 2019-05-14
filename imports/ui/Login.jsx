@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Title from './Title';
 import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 
 class Login extends Component{
@@ -10,7 +10,8 @@ class Login extends Component{
         super(props);
         this.state = {
             username : '',
-            password : ''
+            password : '',
+            redirect : false
         }
 
         this.usernameChanged = this.usernameChanged.bind(this);
@@ -20,6 +21,10 @@ class Login extends Component{
 
 
     render(){
+        if (this.state.redirect) {
+           return <Redirect to='/index'/>
+        }
+
         return(
             <div className="wrapper">
                 <Title />
@@ -41,31 +46,26 @@ class Login extends Component{
         );
     }
 
-    loginUser = () =>{
+    loginUser = (e) =>{
         Meteor.loginWithPassword(
             this.state.username,
             this.state.password
         );
+
+        this.setState({redirect : true});
+        sessionStorage.setItem('username', Meteor.user().username);
     }
 
     usernameChanged = (e) =>{
         let username = e.target.value;
 
-        this.setState({
-            username : username
-        })
-
-        console.log(username);
-
+        this.setState({username : username});
     }
 
     passwordChanged = (e) => {
         let password = e.target.value;
 
-        this.setState({
-            password : password
-        })
-        console.log(password);
+        this.setState({password : password});
     }
   
 

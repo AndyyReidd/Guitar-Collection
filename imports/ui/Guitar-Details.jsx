@@ -19,7 +19,7 @@ class GuitarDetails extends Component{
             return (
                 <div className="guitar-details" key={guitar._id}>
                     <img className="guitar-img" src={guitar.img}></img>
-                    <p>{guitar.year} {guitar.model}</p>
+                    <p>'{guitar.year} {guitar.model}</p>
                 </div>
             );
        }

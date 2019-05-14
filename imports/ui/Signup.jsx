@@ -13,7 +13,8 @@ class Signup extends Component{
             email : '',
             password : '',
             confirm : '',
-            error_msg : ''
+            error_msg : '',
+            redirect : false
         }
 
         this.usernameChanged = this.usernameChanged.bind(this);
@@ -22,12 +23,13 @@ class Signup extends Component{
         this.confirmChanged = this.confirmChanged.bind(this);
         this.createUser = this.createUser.bind(this);
         this.resetFields = this.resetFields.bind(this);
-        this.getError = this.getError.bind(this);
-        //this.error = this.error.bind(this);
-
     }
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect to='/login'/>;
+        }
+
         return(
             <div className="wrapper">
                 <Title />
@@ -73,6 +75,8 @@ class Signup extends Component{
   
 
     createUser = (e) =>{
+        this.setState({error_msg : ''});
+
         if(this.state.password == this.state.confirm){
             Accounts.createUser({
                 "username" : this.state.username, 
@@ -81,22 +85,18 @@ class Signup extends Component{
             }, 
             (err) => {
                 {err ? this.setState({error_msg : err.reason}) : null}
-            });
+            });           
         }
 
         e.preventDefault();
         
-        /* Want to redirect to index here */
+      
 
 
 
 
         
         
-    }
-
-    getError = (message) => {
-        return message;
     }
 
     usernameChanged = (e) =>{

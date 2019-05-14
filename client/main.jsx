@@ -1,8 +1,23 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch  } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
-import App from '/imports/ui/App'
+import Login from '/imports/ui/Login';
+import App from '/imports/ui/App';
+import Signup from '../imports/ui/Signup';
 
 Meteor.startup(() => {
-  render(<App />, document.getElementById('react-target'));
+  ReactDOM.render(routes, document.getElementById('react-target'));
 });
+
+
+const routes = (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/index" component={App} />
+      <Route path="/login" component={Login}/>
+      <Route path="/signup" component={Signup}/>
+    </Switch>
+  </BrowserRouter>
+)

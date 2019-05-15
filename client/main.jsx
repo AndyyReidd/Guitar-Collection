@@ -15,7 +15,7 @@ Meteor.startup(() => {
 const routes = (
   <BrowserRouter>
     <Switch>
-      <Route path="/index" component={App} />
+      <Route exact path='/' component={App}/>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={Signup}/>
     </Switch>

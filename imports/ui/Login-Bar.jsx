@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {Link} from 'react-router-dom';
+import Logout from './Logout';
 
 class LoginBar extends Component{
     constructor(props) {
@@ -18,7 +19,10 @@ class LoginBar extends Component{
         else{
             return(            
                 <div className="login-bar">
-                    <p>Logged in as {sessionStorage['username']}</p>
+                    <p>
+                        Logged in as {sessionStorage['username']}<br/>
+                        <Logout/>
+                    </p>
                 </div>
             );
         }

@@ -17,9 +17,9 @@ class Login extends Component{
 
         this.usernameChanged = this.usernameChanged.bind(this);
         this.passwordChanged = this.passwordChanged.bind(this);
+        this.loginUser = this.loginUser.bind(this);
 
     }
-
 
     render(){
         if (this.state.redirect) {
@@ -53,8 +53,12 @@ class Login extends Component{
             this.state.password
         );
 
-        this.setState({redirect : true});
-        sessionStorage.setItem('username', Meteor.user().username);
+    
+
+        if(Meteor.userId()){
+            sessionStorage['username'] = Meteor.user().username;
+            this.setState({redirect : true});
+        }       
     }
 
     usernameChanged = (e) =>{

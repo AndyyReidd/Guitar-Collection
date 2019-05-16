@@ -6,6 +6,7 @@ import { render } from 'react-dom';
 import Login from '/imports/ui/Login';
 import App from '/imports/ui/App';
 import Signup from '../imports/ui/Signup';
+import AddGuitar from '../imports/ui/Add-Guitar';
 
 Meteor.startup(() => {
   ReactDOM.render(routes, document.getElementById('react-target'));
@@ -15,9 +16,10 @@ Meteor.startup(() => {
 const routes = (
   <BrowserRouter>
     <Switch>
-      <Route path="/index" component={App} />
+      <Route exact path="/" component={App} />
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={Signup}/>
+      <Route path="/add-guitar" component={AddGuitar}/>
     </Switch>
   </BrowserRouter>
 )

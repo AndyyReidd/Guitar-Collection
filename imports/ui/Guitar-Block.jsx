@@ -12,6 +12,8 @@ class GuitarBlock extends TrackerReact(Component) {
         this.state = {usedBrands : new Array()};
     }
 
+    
+
     render(){
         const brands = Guitars.find({}).fetch().map(
             guitar => this.makeBrand(guitar.brand)
@@ -24,8 +26,7 @@ class GuitarBlock extends TrackerReact(Component) {
         if (!this.state.usedBrands.includes(brand))
         {
             this.state.usedBrands.push(brand);
-
-
+            
             return (
                 <div className="guitar-block" key={brand}>
                     <BrandLabel value={brand} />

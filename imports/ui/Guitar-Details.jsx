@@ -7,7 +7,7 @@ class GuitarDetails extends TrackerReact(Component){
         const guitars = Guitars.find({}).fetch().map(
             guitar => this.makeGuitar(guitar)
           );          
-          
+        
         return guitars;
     }
 

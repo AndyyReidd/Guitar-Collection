@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel|Prosto+One|Lobster');
 
-
 .login-bar {
   text-align: right;
 }
@@ -129,9 +128,10 @@ justify-content:space-around;
 .nav-bar li{	
 list-style:none;	
 margin-bottom:-10px;
+
 }
 
-.nav-bar li a {
+.nav-bar-Link {
   text-decoration:none;
   color: rgb(236, 174, 1);
   text-shadow: black 2px 1px;
@@ -139,7 +139,7 @@ margin-bottom:-10px;
   font-weight: bold;
 }
 
-.nav-bar a:hover{
+.nav-bar-Link:hover{
   color: rgb(0, 132, 255);
   text-shadow: 1px 1px black;
   font-weight: bold;

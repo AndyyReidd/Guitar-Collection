@@ -4,6 +4,8 @@ import Title from './Title';
 import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
 import {Redirect, Link} from 'react-router-dom';
+import Navbar from './Navbar';
+
 
 class Signup extends Component{
     constructor(props){
@@ -32,7 +34,7 @@ class Signup extends Component{
 
         return(
             <div className="wrapper">
-                <Title />
+                <Title location="Signup" />
                 <form id="create-user">
                     <p>Create a new account.</p>
                     <div>

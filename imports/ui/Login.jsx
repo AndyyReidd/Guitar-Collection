@@ -3,6 +3,7 @@ import Title from './Title';
 import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
 import {Link, Redirect} from 'react-router-dom';
+import Navbar from './Navbar';
 
 
 class Login extends Component{
@@ -16,18 +17,18 @@ class Login extends Component{
 
         this.usernameChanged = this.usernameChanged.bind(this);
         this.passwordChanged = this.passwordChanged.bind(this);
+        this.loginUser = this.loginUser.bind(this);
 
     }
 
-
     render(){
         if (this.state.redirect) {
-           return <Redirect to='/index'/>
+           return <Redirect to='/'/>
         }
 
         return(
             <div className="wrapper">
-                <Title />
+                <Title location="Login"/>
                 <p>Please fill in your credentials to login.</p>
                 <div>
                     <label>Username</label>
@@ -52,8 +53,12 @@ class Login extends Component{
             this.state.password
         );
 
-        this.setState({redirect : true});
-        sessionStorage.setItem('username', Meteor.user().username);
+    
+
+        if(Meteor.userId()){
+            sessionStorage['username'] = Meteor.user().username;
+            this.setState({redirect : true});
+        }       
     }
 
     usernameChanged = (e) =>{

@@ -1,10 +1,17 @@
-import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import Guitars from '/imports/api/guitars';
-import Images from '../imports/api/Images';
+import Guitars from '../imports/api/collections/Guitars';
+import Brands from '../imports/api/collections/Brands';
+/*import { guitarsPub } from './publications/guitarsPub';
+import { brandsPub } from './publications/brandsPub';*/
 
-function insertGuitar(year, brand, model, img) {
-  Guitars.insert({ year, brand, model, img});
+
+
+function insertGuitar(year, brandId, model, img) {
+  Guitars.insert({ year, brandId, model, img});
+}
+
+function insertBrand(brand){
+  Brands.insert({brand});
 }
 
 Meteor.startup(() => {
@@ -29,6 +36,21 @@ Meteor.startup(() => {
   else{
     console.log('Guitars already');
   }
+
+  
+  // If the Guitars collection is empty, add some data.
+  if (!Brands.findOne({})) {
+    insertBrand('Fender');
+    insertBrand('Gibson');
+    insertBrand('Gretsch');
+  }
+  else{
+    console.log('Brands already');
+  }
+
+  Meteor.publish('guitarsPub', ()=> Guitars.find());
+  Meteor.publish('brandsPub', ()=> Brands.find());
+
 });
 
 

@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import Title from './Title';
-import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
 import {Link, Redirect} from 'react-router-dom';
-import Navbar from './Navbar';
 
 
 class Login extends Component{
@@ -47,7 +45,7 @@ class Login extends Component{
         );
     }
 
-    loginUser = (e) =>{
+    loginUser = () =>{
         Meteor.loginWithPassword(
             this.state.username,
             this.state.password

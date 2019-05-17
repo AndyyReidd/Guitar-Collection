@@ -1,10 +1,20 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import Guitars from '../api/guitars';
+import Guitars from '../api/collections/Guitars';
+import {Meteor} from 'meteor/meteor';
+import Splash from './Splash';
 
 class GuitarDetails extends TrackerReact(Component){
+    constructor(props) {
+        super(props);
+    }    
+    
     render(){
-        const guitars = Guitars.find({}).fetch().map(
+        if (!this.props.guitars) {
+            return <Splash/>;
+        }
+
+        let guitars = this.props.guitars.map(
             guitar => this.makeGuitar(guitar)
           );          
         

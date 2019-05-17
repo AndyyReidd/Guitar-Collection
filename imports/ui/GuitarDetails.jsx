@@ -1,44 +1,20 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import Guitars from '../api/collections/guitars';
+import Guitars from '../api/collections/Guitars';
 import {Meteor} from 'meteor/meteor';
 import Splash from './Splash';
 
 class GuitarDetails extends TrackerReact(Component){
     constructor(props) {
         super(props);
-
-        this.state = ({
-            subscription : {
-                guitar_info : ''
-            }
-        })
-        
-    }
-
-    componentDidMount() {
-        this.setState({
-            subscription : {
-                guitar_info : Meteor.subscribe('guitarPub')
-            }
-        })
-    }
-
-    componentWillUnmount() {
-        this.state.subscription.guitar_info.stop();
-    }
-
-    getGuitars(){
-        return Guitars.find({}).fetch();
-    }
-    
+    }    
     
     render(){
-        if (!this.getGuitars()) {
-            return (<Splash/>);
+        if (!this.props.guitars) {
+            return <Splash/>;
         }
 
-        let guitars = getGuitars().map(
+        let guitars = this.props.guitars.map(
             guitar => this.makeGuitar(guitar)
           );          
         

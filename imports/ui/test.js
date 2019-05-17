@@ -7,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import Guitars from '../api/collections/Guitars';
 import Brands from '../api/collections/Brands';
 
-class GuitarContainer extends TrackerReact(Component){
+class Test extends TrackerReact(Component) {
     constructor(props) {
         super(props);        
         
@@ -18,14 +18,10 @@ class GuitarContainer extends TrackerReact(Component){
             }
         }
 
-       this.getGuitars = this.getGuitars.bind(this);
-       this.getBrands = this.getBrands.bind(this);
+        /*this.getGuitars = this.getGuitars.bind(this);
+        this.getBrands = this.getBrands.bind(this);*/
     }
 
-    componentWillUnmount() {
-        this.state.subscription.guitar_info.stop();
-    }
-    
     getGuitars(){
         return Guitars.find({}).fetch();
     }
@@ -34,17 +30,17 @@ class GuitarContainer extends TrackerReact(Component){
         return Brands.find({}).fetch();
     }
 
-    render(){
-        if (!this.getGuitars() || !this.getBrands()) {
-            return <Splash/>;
+    render() {
+        if (!this.getGuitars()) {
+          return <div>Hi</div>;
         }
 
-        return(
-            <div className="guitar-div">
-                <GuitarBlock guitars={this.getGuitars()} brands={this.getBrands()}/>
-            </div>
-        )
+        let guitars = this.getGuitars();
+
+        return guitars.map((guitar) => {
+            return <div>{guitar.model}</div>
+        })
     }
 }
 
-export default GuitarContainer;
+export default Test;

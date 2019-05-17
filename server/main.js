@@ -1,10 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import Guitars from '../imports/api/collections/Guitars';
-import Brands from '../imports/api/collections/Brands';
-/*import { guitarsPub } from './publications/guitarsPub';
-import { brandsPub } from './publications/brandsPub';*/
-
-
+import Guitars from '../imports/api/collections/guitars';
+import Brands from '../imports/api/collections/brands';
 
 function insertGuitar(year, brandId, model, img) {
   Guitars.insert({ year, brandId, model, img});

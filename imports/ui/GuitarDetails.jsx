@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import Guitars from '../api/collections/Guitars';
-import {Meteor} from 'meteor/meteor';
 import Splash from './Splash';
 
 class GuitarDetails extends TrackerReact(Component){
     constructor(props) {
         super(props);
     }    
-    
+
     render(){
         if (!this.props.guitars) {
             return <Splash/>;

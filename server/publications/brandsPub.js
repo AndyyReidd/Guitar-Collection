@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import Guitars from '../../imports/api/collections/guitars';
+import Brands from '../../imports/api/collections/brands';
 
 // always limit publications by arguments
-Meteor.publish('guitarsPub', function () { // have to use es5 syntax here
+Meteor.publish('brandsPub', function () { // have to use es5 syntax here
   // this is bad practice - should always limit record amounts by retrival arg
-  return Guitars.find({});
+  return Brands.find({});
 });

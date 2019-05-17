@@ -5,8 +5,8 @@ import { Meteor } from 'meteor/meteor';
 import Login from '/imports/ui/Login';
 import App from '/imports/ui/App';
 import Signup from '../imports/ui/Signup';
-import AddGuitar from '../imports/ui/Add-Guitar';
-import Splash from '../imports/ui/splash';
+import AddGuitar from '../imports/ui/AddGuitar';
+import Splash from '../imports/ui/Splash';
 
 Meteor.startup(() => {
   ReactDOM.render(routes, document.getElementById('react-target'));

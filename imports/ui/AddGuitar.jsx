@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import Navbar from './Navbar';
 import Title from './Title';
-import LoginBar from './Login-Bar';
+import LoginBar from './LoginBar';
 
 class AddGuitar extends TrackerReact(Component) {
     render() {

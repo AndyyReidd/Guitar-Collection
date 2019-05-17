@@ -1,9 +1,7 @@
 import React from 'react';
-import Hello from './Hello.jsx';
 import Title from './Title';
-import LoginBar from './Login-Bar';
-import GuitarBlock from './Guitar-Block.jsx';
-import GuitarContainer from './Guitar-Container';
+import LoginBar from './LoginBar';
+import GuitarContainer from './GuitarContainer';
 
 
 const App = () => (

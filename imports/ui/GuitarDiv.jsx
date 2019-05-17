@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import GuitarDetails from './Guitar-Details';
 import GuitarBlock from './Guitar-Block';
-import Guitars from '../api/guitars';
 
 class GuitarDiv extends Component{
+    constructor(props) {
+        super(props);
+    }
+    
     render(){
         return(
             <div className="guitar-div">

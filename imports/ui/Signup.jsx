@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Title from './Title';
-import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
 import {Redirect, Link} from 'react-router-dom';
-import Navbar from './Navbar';
-
 
 class Signup extends Component{
     constructor(props){

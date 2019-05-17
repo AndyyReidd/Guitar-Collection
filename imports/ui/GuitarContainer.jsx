@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import { Meteor } from 'meteor/meteor';
+
 import GuitarBlock from './GuitarBlock';
 import Splash from './Splash';
 
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import { Meteor } from 'meteor/meteor';
-import Guitars from '../api/collections/Guitars';
-import Brands from '../api/collections/Brands';
+import Guitars from '../api/collections/guitars';
+import Brands from '../api/collections/brands';
 
 class GuitarContainer extends TrackerReact(Component){
     constructor(props) {
